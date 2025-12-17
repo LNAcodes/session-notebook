@@ -199,13 +199,13 @@ document.body.classList.toggle("dark");
 ```
 
 ## 8. Personal Stolperfallen & Lessons Learned
-8.1 Exact Naming Matters
+### 8.1 Exact Naming Matters
 
 subtract ≠ substract
 
 JavaScript is case-sensitive
 
-8.2 data-js Must Match HTML Exactly
+### 8.2 data-js Must Match HTML Exactly
 
 HTML:
 ```
@@ -215,7 +215,7 @@ JavaScript:
 ```
 '[data-js="toggle-button"]'
 ```
-8.3 const vs let
+### 8.3 const vs let
 
 const → value cannot change
 
@@ -225,7 +225,7 @@ Rule:
 
 If the value changes later → use let
 
-8.4 Toggle Means Toggle
+### 8.4 Toggle Means Toggle
 
 Correct:
 ```
@@ -235,7 +235,7 @@ Wrong:
 ```
 classList.add("toggle");
 ```
-8.5 Debugging Workflow
+### 8.5 Debugging Workflow
 
 Check selectors first
 
@@ -276,3 +276,4 @@ CSS reacts to class changes
 - [ ] Code is readable
 - [ ] No unused variables
 - [ ] Behavior matches the task description
+
