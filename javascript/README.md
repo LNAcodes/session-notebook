@@ -119,3 +119,160 @@ Reflect on why formulas work, not just how to type them
 Mistakes are expected and useful
 If overwhelmed: pause, simplify, write pseudocode
 Progress is cumulative – today's challenges build tomorrow's understanding
+
+
+# JavaScript DOM & Events – Session Notes
+
+## 1. Connecting JavaScript to HTML
+
+```html
+<script src="./js/index.js" defer></script>
+```
+## 2. The DOM (Document Object Model)
+
+The DOM represents the HTML document as JavaScript objects
+
+Accessible via the global document object
+
+```
+document;
+document.body;
+document.head;
+
+```
+## 3. Selecting Elements (querySelector)
+
+Best practice: use data-* attributes for JavaScript.
+
+```
+const button = document.querySelector('[data-js="add"]');
+```
+Other possible selectors:
+```
+".class"
+"#id"
+"tag"
+```
+Rule:
+
+Classes → CSS
+
+data-* attributes → JavaScript
+
+## 5. Working with Classes (classList)
+```
+element.classList.add("dark");
+element.classList.remove("dark");
+element.classList.toggle("dark");
+```
+## 6. Calculator Challenge – Key Learnings
+Mathematical Operations
+```
+addButton.addEventListener("click", () => {
+  const result = operand1 + operand2;
+  console.log(result);
+});
+```
+Operators:
++ add
+- subtract
+* multiply
+/ divide
+** exponent
+% modulo
+
+Updating Values
+
+If a variable changes, it must be declared with let.
+
+```
+let operand1 = 12;
+```
+
+## 7. Dark Mode Challenge – Key Learnings
+
+Dark mode is controlled by the dark class on <body>.
+```
+document.body.classList.add("dark");
+document.body.classList.remove("dark");
+document.body.classList.toggle("dark");
+```
+
+## 8. Personal Stolperfallen & Lessons Learned
+8.1 Exact Naming Matters
+
+subtract ≠ substract
+
+JavaScript is case-sensitive
+
+8.2 data-js Must Match HTML Exactly
+
+HTML:
+```
+data-js="toggle-button"
+```
+JavaScript:
+```
+'[data-js="toggle-button"]'
+```
+8.3 const vs let
+
+const → value cannot change
+
+let → value can change
+
+Rule:
+
+If the value changes later → use let
+
+8.4 Toggle Means Toggle
+
+Correct:
+```
+classList.toggle("dark");
+```
+Wrong:
+```
+classList.add("toggle");
+```
+8.5 Debugging Workflow
+
+Check selectors first
+
+Use console.log() to inspect values
+
+Test one event listener at a time
+
+## 9. Mental Model
+
+HTML provides structure
+data-js connects JavaScript to HTML
+Events trigger logic
+Logic updates values or classes
+CSS reacts to class changes
+
+# Before Coding Checklist (JavaScript DOM)
+
+## Before Writing Code
+- [ ] Read the HTML first
+- [ ] Identify all `data-js` attributes
+- [ ] Decide which variables need `let` vs `const`
+- [ ] Name variables clearly (e.g. `addButton`, not `btn1`)
+
+## While Coding
+- [ ] Select elements with `querySelector`
+- [ ] Add one `addEventListener` at a time
+- [ ] Use `console.log()` to verify behavior
+- [ ] Test in DevTools after each step
+
+## If Something Does Not Work
+- [ ] Check `data-js` spelling
+- [ ] Check variable names
+- [ ] Check event type (`"click"`)
+- [ ] Check `classList.add/remove/toggle`
+- [ ] Look for console errors first
+
+## Final Check
+- [ ] Code is readable
+- [ ] No unused variables
+- [ ] Behavior matches the task description
