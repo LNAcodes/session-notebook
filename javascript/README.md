@@ -277,3 +277,124 @@ CSS reacts to class changes
 - [ ] No unused variables
 - [ ] Behavior matches the task description
 
+# JavaScript Conditions & Booleans – Key Learnings
+
+This document summarizes the essential JavaScript concepts and key takeaways from the exercises you completed. Focused on **backend-relevant points** for a Fullstack Developer perspective.
+
+---
+
+## 1️⃣ Booleans & Truthy/Falsy
+
+**Essentials:**  
+- Boolean = `true` or `false`  
+- Commonly used in conditions (`if`, `while`)
+
+**Truthy / Falsy:**  
+- JavaScript can coerce any value into a Boolean:  
+  - **Truthy:** everything except `0`, `""`, `null`, `undefined`, `false`  
+  - **Falsy:** `0`, `""`, `null`, `undefined`, `false`  
+
+**Pitfall:**  
+- `if(variable)` checks **truthiness**, not just existence  
+- Example: `if(0)` → false, even though the variable exists
+
+---
+
+## 2️⃣ Comparison Operators
+
+- `===` → strict equality (value + type)  
+- `!==` → strict inequality  
+- `==` / `!=` → non-strict, **avoid**  
+- Greater/less than: `>`, `<`, `>=`, `<=`  
+
+**Pitfall:**  
+- `=` is assignment, not comparison  
+- Always use `===` for password checks or conditional logic
+
+---
+
+## 3️⃣ Logical Operators
+
+- `&&` → both must be true  
+- `||` → one must be true  
+- `!` → negation  
+
+**Pitfall:**  
+- With non-Boolean values, JS may return the **original value** (short-circuit behavior)  
+- Example: `"text" || ""` → `"text"`
+
+---
+
+## 4️⃣ Control Flow: if / else
+
+- Standard structure:  
+
+```js
+if (condition) {
+  // code if true
+} else {
+  // code if false
+}
+```
+Chain with else if for multiple cases
+Condition can be a comparison or logical operation
+
+Pitfall:
+When checking numbers, always use proper operators:
+```
+if (number % 2 === 0) { /* even */ }
+```
+## 5️⃣ Ternary Operator
+
+Short version of if/else for two possible outcomes
+
+Syntax:
+```
+const variable = condition ? valueIfTrue : valueIfFalse;
+```
+Pitfalls:
+Missing : for false case → SyntaxError
+Semicolon comes after the whole expression, not in the middle
+
+## 6️⃣ Switch Statement (optional)
+
+Checks if a variable matches one of several values
+```
+switch (variable) {
+  case "value1":
+    // code
+    break;
+  case "value2":
+    // code
+    break;
+  default:
+    // code for everything else
+}
+```
+Pitfall:
+
+Forgetting break → fall-through
+
+## 7️⃣ Backend-Relevant Tips
+
+Password checks → always use ===
+
+Number logic → use %, >=, <=
+
+Keep logic concise → use ternary or helper functions
+
+Branches / PRs → always PR from feature branch to main
+
+Use console.log / test different values during development
+
+## 8️⃣ My Key Pitfalls
+
+= vs === → wrong comparison operator
+
+Ternary → missing :
+
+const vs let → immutable variables
+
+Modulo % → need === 0 for even numbers
+
+Short-circuit in && / || → returns original value sometimes
